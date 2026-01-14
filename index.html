@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discipline Tracker</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Custom Modal -->
+    <div id="confirm-modal" class="modal-overlay hidden">
+        <div class="glass-card modal-content">
+            <h3>Delete Habit?</h3>
+            <p>This cannot be undone.</p>
+            <div class="modal-actions">
+                <button id="modal-cancel" class="btn-secondary">Cancel</button>
+                <button id="modal-confirm" class="btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header-section">
+            <!-- Evolving Logo -->
+            <svg class="logo-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <!-- Triangle 1 (Bottom Left) -->
+                <path id="logo-tri-1" d="M2.5 21L7.5 12L12.5 21H2.5Z" fill="currentColor" class="logo-part" />
+
+                <!-- Triangle 2 (Bottom Right) -->
+                <path id="logo-tri-2" d="M11.5 21L16.5 12L21.5 21H11.5Z" fill="currentColor" class="logo-part" />
+
+                <!-- Triangle 3 (Top) -->
+                <path id="logo-tri-3" d="M7 11L12 2L17 11H7Z" fill="currentColor" class="logo-part" />
+            </svg>
+
+            <h1>Ascend</h1>
+            <div class="subtitle">Elevate Your Daily Standards</div>
+        </div>
+
+        <!-- Left Column (Desktop) -->
+        <div class="task-section">
+            <div class="glass-card">
+                <h2 class="section-title">Daily Execution</h2>
+                <div class="input-group">
+                    <input type="text" id="new-task" placeholder="Add new habit...">
+                    <button id="add-task-btn" class="btn-primary">+</button>
+                </div>
+                <div id="task-list" class="task-list">
+                    <!-- Tasks injected by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column (Desktop) -->
+        <div class="stats-sidebar">
+            <div class="glass-card">
+                <h2 class="section-title">Today's Score</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div id="score" class="stat-value">0%</div>
+                        <div id="status" class="stat-label">Neutral</div>
+                    </div>
+                    <div class="stat-box">
+                        <div id="streak" class="stat-value">0 days</div>
+                        <div class="stat-label">Current Streak</div>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <h2 class="section-title">7-Day History</h2>
+                <div id="chart" class="chart-container">
+                    <!-- Chart bars injected by JS -->
+                </div>
+            </div>
+
+            <button class="btn-secondary" onclick="exportCSV()">Export Data (CSV)</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
