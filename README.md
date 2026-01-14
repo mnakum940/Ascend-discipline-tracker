@@ -2,9 +2,6 @@
 
 **Ascend** is a modern, high-performance habit execution system designed to help you build discipline through visual progress, immersive audio feedback, and a stunning "Glassmorphism" interface.
 
-![Project Preview](preview.png)
-*(Note: Add a screenshot of the app here)*
-
 ## ✨ Features
 
 ### 🎨 Immersive Design
@@ -64,3 +61,4 @@ This project is designed to be simple and hackable. Feel free to fork it and add
 ## 📄 License
 
 This project is open-source and available under the **MIT License**.
+
