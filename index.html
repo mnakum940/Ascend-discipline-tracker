@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discipline Tracker</title>
+    <title>Ascend - Elevate Your Daily Standards</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,10 +28,27 @@
         </div>
     </div>
 
+    <!-- Manual Modal -->
+    <div id="manual-modal" class="modal-overlay hidden">
+        <div class="glass-card modal-content manual-content">
+            <h3>User Manual 💡</h3>
+            <div class="manual-body">
+                <p><strong>Add Habit:</strong> Type name & press Enter/Click +.</p>
+                <p><strong>Complete:</strong> Click box/text. Sound = Progress.</p>
+                <p><strong>Delete:</strong> Click '×'. Custom sound plays.</p>
+                <p><strong>Logo:</strong> Evolves with your daily % score.</p>
+                <p><strong>Themes:</strong> Auto-changes (Morning/Noon/Night).</p>
+            </div>
+            <button id="manual-close" class="btn-primary">Got it</button>
+        </div>
+    </div>
+
     <div class="container">
         <div class="header-section">
-            <!-- Evolving Logo -->
-            <svg class="logo-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <div id="help-btn" class="help-btn" title="User Manual">💡</div>
+
+            <!-- Evolving Logo (ViewBox increased for shadow space) -->
+            <svg class="logo-svg" viewBox="-5 -5 34 34" xmlns="http://www.w3.org/2000/svg">
                 <!-- Triangle 1 (Bottom Left) -->
                 <path id="logo-tri-1" d="M2.5 21L7.5 12L12.5 21H2.5Z" fill="currentColor" class="logo-part" />
 

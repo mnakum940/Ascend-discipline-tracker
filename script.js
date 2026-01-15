@@ -79,6 +79,10 @@ const elements = {
     modal: document.getElementById('confirm-modal'),
     modalConfirm: document.getElementById('modal-confirm'),
     modalCancel: document.getElementById('modal-cancel'),
+    // Manual Elements
+    helpBtn: document.getElementById('help-btn'),
+    manualModal: document.getElementById('manual-modal'),
+    manualClose: document.getElementById('manual-close'),
     // Logo Elements
     logo: document.querySelector('.logo-svg'),
     tri1: document.getElementById('logo-tri-1'),
@@ -119,19 +123,27 @@ function updateTheme() {
 
 // Initialize
 function init() {
-    renderTasks();
-    update();
-    renderChart();
-    updateTheme();
-    setInterval(updateTheme, 60000); // Check theme every minute
-
     // Event Listeners
     elements.addTaskBtn.addEventListener('click', addTask);
     elements.newTaskInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') addTask();
     });
 
-    // Modal Listeners
+    renderTasks();
+    update();
+    renderChart();
+    updateTheme();
+
+    // Check theme frequently (every 5s) for responsiveness
+    setInterval(updateTheme, 5000);
+
+    // Update immediately when user comes back to tab
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) updateTheme();
+    });
+
+
+    // Delete Modal Listeners
     elements.modalCancel.addEventListener('click', hideModal);
     elements.modalConfirm.addEventListener('click', () => {
         if (pendingDeleteTask) {
@@ -139,6 +151,23 @@ function init() {
             hideModal();
         }
     });
+
+    // Manual Modal Listeners
+    if (elements.helpBtn) {
+        elements.helpBtn.addEventListener('click', () => {
+            elements.manualModal.classList.remove('hidden');
+            setTimeout(() => elements.manualModal.classList.add('active'), 10);
+            sounds.playClick();
+        });
+    }
+
+    if (elements.manualClose) {
+        elements.manualClose.addEventListener('click', () => {
+            elements.manualModal.classList.remove('active');
+            setTimeout(() => elements.manualModal.classList.add('hidden'), 300);
+            sounds.playClick();
+        });
+    }
 }
 
 function renderTasks() {
