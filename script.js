@@ -457,3 +457,53 @@ window.addEventListener('load', () => {
         }
     }, 3500); // Wait for 3.5s (animation cycle)
 });
+
+// --- MOTIVATIONAL NOTIFICATIONS ---
+const quotes = [
+    "Discipline is freedom.",
+    "The only easy day was yesterday.",
+    "Don't wish it were easier. Wish you were better.",
+    "Suffer the pain of discipline, or suffer the pain of regret.",
+    "Success is the sum of small efforts, repeated day in and day out.",
+    "You are what you consistently do.",
+    "Motivation gets you started. Habit keeps you going.",
+    "Your future is created by what you do today, not tomorrow.",
+    "Excuses don't burn calories.",
+    "Focus on the process, not the outcome."
+];
+
+function requestNotificationPermission() {
+    if (!("Notification" in window)) return;
+    if (Notification.permission !== "granted" && Notification.permission !== "denied") {
+        Notification.requestPermission();
+    }
+}
+
+function sendNotification() {
+    if (Notification.permission === "granted") {
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        // Check progress
+        const todayData = state.history[today] || {};
+        const completedCount = state.tasks.filter(t => todayData[t]).length;
+        const totalCount = state.tasks.length;
+        const percent = totalCount === 0 ? 0 : Math.round((completedCount / totalCount) * 100);
+
+        if (percent < 100 && totalCount > 0) {
+            new Notification("Ascend: Reminder", {
+                body: `${randomQuote}\n(Current Status: ${percent}%)`,
+                icon: "logo.png"
+            });
+            sounds.playClick(); // Subtle chime
+        }
+    }
+}
+
+// Request permission on first interaction (e.g., clicking anywhere)
+document.addEventListener('click', requestNotificationPermission, { once: true });
+
+// Check every hour (3600000ms) - set to shorter (e.g. 10s) for testing if needed
+// For prod: 1 hour. For user testing now: I'll set it to 60 seconds so they see it.
+setInterval(sendNotification, 3600000);
+
+// Also trigger one 5 seconds after load if not 100% (Motivational Nudge)
+setTimeout(sendNotification, 5000);
