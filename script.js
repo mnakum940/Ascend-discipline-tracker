@@ -445,3 +445,15 @@ function exportCSV() {
 window.exportCSV = exportCSV;
 
 init();
+
+// Splash Screen Logic
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const splash = document.getElementById('splash-screen');
+        if (splash) {
+            splash.classList.add('hidden');
+            // Remove from DOM after transition (0.8s) to free memory
+            setTimeout(() => splash.remove(), 800);
+        }
+    }, 3500); // Wait for 3.5s (animation cycle)
+});

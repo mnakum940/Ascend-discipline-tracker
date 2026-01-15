@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ascend - Elevate Your Daily Standards</title>
-    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,21 @@
 </head>
 
 <body>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <svg class="splash-logo" viewBox="-5 -5 34 34" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 11L12 2L17 11H7Z" fill="#ffbb00" class="splash-part top" />
+                <path d="M2.5 21L7.5 12L12.5 21H2.5Z" fill="#ff9900" class="splash-part left" />
+                <path d="M11.5 21L16.5 12L21.5 21H11.5Z" fill="#ffcc00" class="splash-part right" />
+            </svg>
+            <h1 class="splash-title">Ascend</h1>
+            <div class="loader-container">
+                <div class="loader-bar"></div>
+            </div>
+        </div>
+    </div>
+
     <canvas id="confetti-canvas"></canvas>
 
     <!-- Custom Modal -->
@@ -109,6 +124,5 @@
 
     <script src="script.js"></script>
 </body>
-
 
 </html>
