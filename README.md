@@ -12,6 +12,7 @@
   - 🌇 **Afternoon**: Warm Ambience (Amber/Orange)
   - 🌆 **Evening**: Sunset Hues (Purple/Red)
   - 🌌 **Night**: Deep Focus (Indigo/Violet)
+- **Mobile Splash Screen**: A sophisticated animated loading screen welcomes you on every launch.
 
 ### 🚀 Dynamic Functionality
 - **Zero-Friction Management**: Easily add and remove habits.
@@ -30,6 +31,7 @@
 ### 📱 Responsive & Private
 - **Adaptive Layout**: Optimized for both mobile (vertical stack) and desktop (2-column grid).
 - **Privacy First**: All data is stored locally in your browser (`localStorage`). No servers, no sign-ups.
+- **PWA Ready**: Installable on Android/iOS (Add to Home Screen) with full offline support.
 
 ## 🛠️ Installation & Usage
 
@@ -38,16 +40,18 @@
     git clone https://github.com/yourusername/ascend-habit-tracker.git
     ```
 2.  **Open the Application**
-    Simply open `index.html` in any modern web browser. No build steps or servers required.
+    Simply open `index.html` in any modern web browser. 
+
 
 ## 📂 Project Structure
 
 ```
 /
-├── index.html      # Main application structure
-├── style.css       # Glassmorphism styles & animations
+├── index.html      # Main application (plus Splash Screen)
+├── style.css       # Glassmorphism styles, animations, & themes
 ├── script.js       # Core logic, audio engine, & storage
-├── manifest.json   # PWA Metadata
+├── manifest.json   # PWA Metadata (Icons & config)
+├── logo.png        # App Icon
 └── README.md       # Project documentation
 ```
 
@@ -61,4 +65,3 @@ This project is designed to be simple and hackable. Feel free to fork it and add
 ## 📄 License
 
 This project is open-source and available under the **MIT License**.
-
